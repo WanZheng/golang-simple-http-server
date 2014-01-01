@@ -27,11 +27,11 @@ func main() {
 }
 
 func router(w http.ResponseWriter, r *http.Request) {
-	log.Printf("uri = %s", r.RequestURI)
+	log.Printf("serving %s", r.RequestURI)
 
 	uri := r.RequestURI
 	if "/" == uri {
-		log.Print("list dir")
+		// log.Print("list dir")
 		http.ServeFile(w, r, *root)
 		return
 	}
@@ -42,7 +42,7 @@ func router(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, uri[1:], http.StatusNotFound)
 			return
 		}
-		log.Printf("serve file: %s", path)
+		// log.Printf("serve file: %s", path)
 		http.ServeFile(w, r, path)
 		return
 	}
