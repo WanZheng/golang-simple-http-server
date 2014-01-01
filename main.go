@@ -11,14 +11,14 @@ import (
 	"flag"
 )
 
-var root = flag.String("home", "", "home directory")
-var port = flag.Int("port", 8080, "port")
+var root = flag.String("h", "", "home directory")
+var port = flag.Int("p", 8080, "port")
 
 func main() {
 	flag.Parse()
 
 	if len(*root) <= 0 {
-		log.Fatal("usage: server --home <Home directory> --port <PORT>")
+		log.Fatal("usage: server -h <Home directory> -p <PORT>")
 	}
 
 	http.HandleFunc("/", router)
