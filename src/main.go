@@ -18,7 +18,7 @@ func main() {
 	flag.Parse()
 
 	if len(*root) <= 0 {
-		log.Fatal("usage: server --home <Home directory>")
+		log.Fatal("usage: server --home <Home directory> --port <PORT>")
 	}
 
 	http.HandleFunc("/", router)
